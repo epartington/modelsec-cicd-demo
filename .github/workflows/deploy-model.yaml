@@ -28,14 +28,11 @@ jobs:
       - name: Install uv
         run: pip install uv
 
-      # - name: Source environment variables
-      #   run: |
-      #     set -a
-      #     source .env.local
-      #     set +a
-      #     echo "MODEL_SECURITY_CLIENT_ID=$MODEL_SECURITY_CLIENT_ID" >> $GITHUB_ENV
-      #     echo "MODEL_SECURITY_CLIENT_SECRET=$MODEL_SECURITY_CLIENT_SECRET" >> $GITHUB_ENV
-      #     echo "TSG_ID=$TSG_ID" >> $GITHUB_ENV
+      - name: Set environment variables
+        run: |
+          echo "MODEL_SECURITY_CLIENT_ID=${{ vars.MODEL_SECURITY_CLIENT_ID }}" >> $GITHUB_ENV
+          echo "MODEL_SECURITY_CLIENT_SECRET=${{ secrets.MODEL_SECURITY_CLIENT_SECRET }}" >> $GITHUB_ENV
+          echo "TSG_ID=${{ vars.TSG_ID }}" >> $GITHUB_ENV
 
       - name: Install model-security-client
         run: |
@@ -62,14 +59,11 @@ jobs:
       - name: Install uv
         run: pip install uv
 
-      - name: Source environment variables
+      - name: Set environment variables
         run: |
-          set -a
-          source .env.local
-          set +a
-          echo "MODEL_SECURITY_CLIENT_ID=$MODEL_SECURITY_CLIENT_ID" >> $GITHUB_ENV
-          echo "MODEL_SECURITY_CLIENT_SECRET=$MODEL_SECURITY_CLIENT_SECRET" >> $GITHUB_ENV
-          echo "TSG_ID=$TSG_ID" >> $GITHUB_ENV
+          echo "MODEL_SECURITY_CLIENT_ID=${{ vars.MODEL_SECURITY_CLIENT_ID }}" >> $GITHUB_ENV
+          echo "MODEL_SECURITY_CLIENT_SECRET=${{ secrets.MODEL_SECURITY_CLIENT_SECRET }}" >> $GITHUB_ENV
+          echo "TSG_ID=${{ vars.TSG_ID }}" >> $GITHUB_ENV
 
       - name: Install model-security-client
         run: |
